@@ -7,10 +7,26 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  "materialize": "vendor/materialize-css",
+   "angular2-materialize": "vendor/angular2-materialize",
+   "jquery": "vendor/jquery",
+   "angular2-localstorage": "vendor/angular2-localstorage/dist",
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'materialize': {
+    "format": "global",
+    "main": "dist/js/materialize",
+    "defaultExtension": "js"
+  },
+  'angular2-materialize': {
+    "main": "dist/index",
+    "defaultExtension": "js"
+  },
+  'angular2-localstorage': {
+    "defaultExtension": "js"
+  },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,6 +50,9 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/corredor',
+  'app/timer',
+  'app/corredor-detail',
   /** @cli-barrel */
 ];
 

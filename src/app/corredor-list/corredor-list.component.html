@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col s12">
+    <h3>Lista de Corredores</h3>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Tiempo</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let corredor of corredores; let i=index;trackBy:tackByCorredor" >
+          <td>{{i+1}}</td>
+          <td>{{ corredor.name }}</td>
+          <td>
+            <strong>{{corredor.minutes}}m{{corredor.seconds}}s</strong>
+          </td>
+          <td>
+            <button (click)="set(corredor)" class="btn waves-effect">
+              Set
+            </button>
+            <a materialize="leanModal" (click)="editar(corredor)" href="#corredor-detail-modal" class="btn waves-effect red modal-trigger">
+              Editar
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="corredor-detail-modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+      <app-corredor-detail [(corredor)]="currentCorredor" ></app-corredor-detail>
+    </div>
+    <div class="modal-footer">
+      
+      <a (click)="sort()" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
+    </div>
+</div>
+
+
+
