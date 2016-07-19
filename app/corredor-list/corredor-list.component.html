@@ -16,12 +16,12 @@
           <td>
             <strong>{{corredor.minutes}}m{{corredor.seconds}}s</strong>
           </td>
-          <td>
+          <td style="min-width:12em">
             <button (click)="set(corredor)" class="btn waves-effect set-btn">
               Set
             </button>
-            <a materialize="leanModal" (click)="editar(corredor)" href="#corredor-detail-modal" class="btn waves-effect red modal-trigger">
-              Editar
+            <a materialize="leanModal" (click)="editar(corredor)" href="#corredor-detail-modal" class="btn-floating btn-small waves-effect waves-light red modal-trigger">
+              <i class="material-icons">mode_edit</i>
             </a>
           </td>
         </tr>
