@@ -21,7 +21,7 @@ export class CorredorListComponent implements OnInit {
     private timer: TimerService
     ) {}
 
-  @SessionStorage() corredores: any;
+  corredores: any;
   currentCorredor: Corredor;
   @Input() running: boolean;
 
@@ -29,6 +29,7 @@ export class CorredorListComponent implements OnInit {
     this.corredorService.corredores$().subscribe(c => {
       this.corredores = c;
     })
+    this.corredores = this.corredorService.getOnce();
     this.currentCorredor = new Corredor("");
     this.timer.isRunning().subscribe(r => this.running = r);
   }
@@ -38,7 +39,16 @@ export class CorredorListComponent implements OnInit {
     corredor.seconds = time.seconds;
     corredor.minutes = time.minutes;
     corredor.hours = time.hours;
+    console.log(this.corredores);
+    console.log(time);
+    debugger;
     this.sort();
+    console.log('sorted', this.corredores);
+    this.corredorService.set(this.corredores);
+  }
+
+  remove(id){
+    this.corredorService.remove(id);
   }
 
   editar(corredor){

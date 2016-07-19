@@ -9,23 +9,11 @@ import { TimerService } from '../timer.service';
 })
 export class TimerComponent implements OnInit {
 
-  hours:number = 0;
-  minutes:number = 0;
-  seconds:number = 0;
-  centiSeconds:number = 0;
-  private interval: any;
   public running:boolean = false;
 
   constructor(private timer: TimerService) {}
 
   ngOnInit() {
-    this.timer.getTime().subscribe( timer => {
-      this.hours = timer.hours;
-      this.minutes = timer.minutes;
-      this.seconds = timer.seconds;
-      this.centiSeconds = timer.centiSeconds;
-    })
-    this.timer.isRunning().subscribe( r => this.running = r);
   }
 
   start(){

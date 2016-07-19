@@ -53,6 +53,7 @@ const barrels: string[] = [
   'app/corredor',
   'app/timer',
   'app/corredor-detail',
+  'app/clock',
   /** @cli-barrel */
 ];
 
